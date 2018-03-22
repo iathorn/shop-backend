@@ -5,4 +5,4 @@ create table alert(
     id int not null auto_increment primary key,
     title varchar(100),
     body text,
-    publishedDate varchar(100));
+    publishedDate date);
