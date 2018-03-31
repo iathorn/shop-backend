@@ -6,3 +6,12 @@ create table alert(
     title varchar(100),
     body text,
     publishedDate date);
+
+create table item(
+    id int not null auto_increment primary key,
+    title varchar(100),
+    body text,
+    price int,
+    imageNames text,
+    publishedDate date
+);

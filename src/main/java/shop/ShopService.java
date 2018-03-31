@@ -34,6 +34,16 @@ public class ShopService {
         return shopDAO.writeAlertItem(alertItem);
     }
 
+    // item
+
+    public Item getItemById(long id){
+        return shopDAO.getItemById(id);
+    }
+
+    public long writeItem(Item item){
+        return shopDAO.writeItem(item);
+    }
+
     
 
     

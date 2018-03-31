@@ -56,6 +56,26 @@ public class ShopDAO {
         return cnt;
     }
 
+
+    // item
+
+    public long writeItem(Item item){
+        String sql = "INSERT INTO item (title, body, price, imageNames, publishedDate)" + " VALUES(?, ?, ? ,? ,?)";
+        int update = jdbcTemplate.update(sql, new Object[]{item.getTitle(), item.getBody(), item.getPrice(), item.getImageNames(), item.getPublishedDate()});
+        long cnt = 0;
+        if(update == 1){
+            cnt = jdbcTemplate.queryForObject("SELECT max(id) FROM item", Long.class);
+        }
+
+        return cnt;
+    }
+
+    public Item getItemById(long id) {
+        String sql = "SELECT * FROM item WHERE id = ?";
+        Item item = jdbcTemplate.queryForObject(sql, new ItemMapper(), id);
+        return item;
+    }
+
     protected static final class AlertItemMapper implements RowMapper<AlertItem> {
         public AlertItem mapRow(ResultSet rs, int rowNum)
                 throws SQLException {
@@ -66,6 +86,21 @@ public class ShopDAO {
             alertItem.setBody(rs.getString("body"));
             alertItem.setPublishedDate(rs.getString("publishedDate"));
             return alertItem;
+        }
+    }
+
+    protected static final class ItemMapper implements RowMapper<Item> {
+        public Item mapRow(ResultSet rs, int rowNum)
+                throws SQLException {
+            
+            Item item = new Item();
+            item.setId(rs.getLong("id"));
+            item.setTitle(rs.getString("title"));
+            item.setBody(rs.getString("body"));
+            item.setPrice(rs.getInt("price"));
+            item.setImageNames(rs.getString("imageNames"));
+            item.setPublishedDate(rs.getString("publishedDate"));
+            return item;
         }
     }
 }
