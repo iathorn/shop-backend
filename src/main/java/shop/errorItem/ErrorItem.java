@@ -1,4 +1,4 @@
-package shop.error;
+package shop.errorItem;
 
 public class ErrorItem {
     private String content;

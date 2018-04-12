@@ -1,9 +1,13 @@
 package shop;
 
+import java.awt.Checkbox;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import shop.models.account.Account;
+import shop.models.checkout.Checkout;
 
 @Service
 public class ShopService {
@@ -44,7 +48,48 @@ public class ShopService {
         return shopDAO.writeItem(item);
     }
 
-    
+    public List<Item> getItemList() {
+        return shopDAO.getItemList();
+    }
 
+    public boolean deleteById(long id) {
+        return shopDAO.deleteItemById(id);
+    }
+
+    public void updateById(Item item) {
+        shopDAO.updateById(item);
+    }
+
+    // Auth (member)
+
+    public long signup(Account account) {
+        return shopDAO.signup(account);
+    }
+
+    public Account getUserById(long id) {
+        return shopDAO.getUserById(id);
+    }
+
+    public Boolean getUserByUserID(String userID) {
+        return shopDAO.getUserByUserID(userID);
+    }
+
+    public String getHashedPassword(String userID) {
+        return shopDAO.getHashedPassword(userID);
+    }
+
+    public Account getUserInfo(String userID) {
+        return shopDAO.getUserInfo(userID);
+    }
+
+    // Checkout
+
+    public long checkout(Checkout checkout) {
+        return shopDAO.checkout(checkout);
+    }
+
+    public Checkout getCheckoutById(long id) {
+        return shopDAO.getCheckoutById(id);
+    }
     
 }

@@ -1,0 +1,22 @@
+{
+    "run": [
+        {
+            "name": "shop",
+            "projectName": "shop",
+            "workingDirectory": "/Users/paul/spring/shop",
+            "args": [],
+            "vmargs": [],
+            "preLaunchTask": ""
+        }
+    ],
+    "debug": [
+        {
+            "name": "shop",
+            "projectName": "shop",
+            "workingDirectory": "/Users/paul/spring/shop",
+            "args": [],
+            "vmargs": [],
+            "preLaunchTask": ""
+        }
+    ]
+}
