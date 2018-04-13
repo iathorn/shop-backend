@@ -68,10 +68,12 @@ public class ShopController {
     @Autowired
     ShopService shopService;
 
-    @RequestMapping(value = "/")
-    public String index() {
-        return "index";
-    }
+    // @RequestMapping(value = "/alert")
+    // public String index() {
+    //     return "redirect:/pages/final.html";
+    // }
+
+    
 
     // Auth
     @RequestMapping(value = "/api/auth/login/admin", method = RequestMethod.POST)
